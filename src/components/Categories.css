@@ -1,0 +1,48 @@
+.categories {
+    background-color: white  ;
+    padding: 15px 20px ;
+    margin: 10px 10px ;
+    height: 430px ;
+    transition: box-shadow .3s ease-in-out ;
+    -webkit-transition: box-shadow .3s ease-in-out ;
+    -moz-transition: box-shadow .3s ease-in-out ;
+    -ms-transition: box-shadow .3s ease-in-out ;
+    -o-transition: box-shadow .3s ease-in-out ;
+}
+.categories:hover {
+    box-shadow: 3px 3px 14px #A8A8A8 !important;
+}
+.categories > h2 {
+    margin-bottom: 8px ;
+}
+.categories > div {
+    padding: 5px 0px ;
+    overflow:hidden ;
+}
+
+.categories-link {
+    text-decoration: none ;
+    color: #00b8FC ;
+    transition: all 200ms ease-in-out ;
+}
+.categories-link:hover {
+    text-decoration : underline ;
+    color: #CA5B2D ;
+}
+.categories img {
+    width: 100% ;
+    height: 320px !important  ;
+    object-fit: cover ;
+    transition : all 300ms ease-in-out ;
+}
+.categories img:hover {
+    transform: scale(1.1)
+}
+.MuiPaper-rounded {
+    border-radius: 0px !important ;
+    background-color: white ;
+}
+.MuiPaper-elevation1 {
+    box-shadow: none !important ;
+}
+

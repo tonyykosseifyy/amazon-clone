@@ -1,0 +1,33 @@
+
+.MuiSelect-selectMenu {
+    background-color : #EAEDED  !important ;
+    color: black ;
+    border-top-left-radius: 7px !important ;
+    border-bottom-left-radius: 7px !important ;
+} 
+.MuiInputLabel-formControl {
+    transform: translateY(11px) !important ;
+}
+.link {
+    text-decoration: none ;
+    color: inherit ;
+    width: 100% ;
+    display: block ;
+}
+.MuiInput-underline:after {
+    display: none !important ;
+}
+.MuiInput-underline:before {
+    display: none ;
+}
+
+.makeStyles-formControl-1 {
+    margin: 0px !important ;
+}
+.MuiInput-formControl {
+    margin-top: 0px !important ;
+}
+
+.MuiInputBase-input {
+    padding: 9.9px 40px !important ;
+}

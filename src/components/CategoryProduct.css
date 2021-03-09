@@ -1,0 +1,41 @@
+
+.product-info {
+    flex: .5 !important ;
+    display: flex ;
+    flex-direction : column ;
+    justify-content: flex-start ;
+}
+.product-info > h1 {
+    margin: 7px 0px ;
+}
+.product-info > h2 {
+    font-size: 1.2em ;
+    margin: 3px 0 ;
+}
+.product-info > strong {
+    font-size: 18px ;
+    font-weight : 800 ;
+    font-family: 'Open Sans', sans-serif;
+}
+.product-info > strong span {
+    font-weight: 600 ;
+}
+.search-failed {
+    margin: 40px auto ;
+    font-weight: 400 ;  
+    font-size:17px ; 
+    text-align: center ;
+}
+.product-info  .MuiSvgIcon-root {
+    margin-left: -2.5px ;
+    margin-top: 3px ;
+}
+@media screen and (max-width: 1024px) {
+    .single-product {
+        flex-direction: column
+    }
+    .MuiButtonBase-root {
+        margin-top: auto  !important ;
+    }
+    
+}

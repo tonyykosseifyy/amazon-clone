@@ -1,0 +1,70 @@
+.product {
+    background-color: white ;
+    padding: 15px 20px ;
+    margin: 10px 10px ;
+    overflow: hidden ;
+    transition: box-shadow .3s ease-in-out ;
+    -webkit-transition: box-shadow .3s ease-in-out ;
+    -moz-transition: box-shadow .3s ease-in-out ;
+    -ms-transition: box-shadow .3s ease-in-out ;
+    -o-transition: box-shadow .3s ease-in-out ;
+}
+.product:hover {
+    box-shadow: 3px 3px 14px #A8A8A8 !important;
+}
+
+.product > div {
+    padding: 5px 0px ;
+    overflow:hidden ;
+}
+
+.product img {
+    width: 100% ;
+    height: 320px  ;
+    object-fit: cover ;
+    transition: all 300ms ease-in-out ;
+    -webkit-transition: all 300ms ease-in-out ;
+    -moz-transition: all 300ms ease-in-out ;
+    -ms-transition: all 300ms ease-in-out ;
+    -o-transition: all 300ms ease-in-out ;
+}
+.product img:hover {
+    transform: scale(1.1)
+}
+.product.dark {
+    color: white 
+}
+.product > p {
+    margin: 8px 0px ;
+    font-size: 18px ;
+}
+.product > span {
+    font-weight : 800 ;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.product-rating > .MuiSvgIcon-root {
+    margin: 0 -2.5px ;
+}
+.product-bottom {
+    display: flex ;
+    align-items: center ;
+    justify-content: space-between
+}
+.product-link {
+    text-decoration: none ;
+    color: #00b8FC ;
+    transition: all 200ms ease-in-out ;
+    -webkit-transition: all 200ms ease-in-out ;
+    -moz-transition: all 200ms ease-in-out ;
+    -ms-transition: all 200ms ease-in-out ;
+    -o-transition: all 200ms ease-in-out ;
+}
+.product-link:hover {
+    text-decoration : underline ;
+    color: #CA5B2D ;
+}
+.button-link {
+    text-decoration : none ;
+    color: inherit ;
+}

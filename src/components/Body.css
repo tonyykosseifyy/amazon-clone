@@ -1,0 +1,143 @@
+.body {
+    width: 100% ;
+    background-color: #EAEDED  ; 
+}
+
+.body-images img {
+    width: 100% ;
+    height: 500px !important ;
+    object-fit: cover ;
+}
+.shop-category {
+
+}
+.cont-category {
+    position: absolute ;
+    top: 275px ;
+    left: 20px ;
+    z-index: 200 ;
+    display: flex ;
+    align-items: center ;
+}
+.cont-category:hover .arrow {
+    transform: translateX(10px) ;
+    transition: all .3s ease-in-out ;
+}
+.cont-category {
+    cursor: default ;
+}
+.cont-category > h1 {
+    font-size: 24px ;
+}
+.body-fade {
+    position: absolute ;
+    width: 100% ;
+    height: 50% ;
+    z-index: 2 ;
+    bottom: 0 ;
+    left: 0 ;
+    right: 0 ;  
+}
+.light {
+    background: linear-gradient(transparent ,#EAEDED )
+}
+.dark {
+    background: linear-gradient(transparent , #101010  )
+}
+.arrow {
+   margin-top: 10px ;
+   margin-left: 6px ;
+}
+.daily:hover .arrow {
+    transform: translateX(10px) ;
+    transition: all .3s ease-in-out ;
+}
+.body-products {
+    cursor: default ;
+}
+.daily {
+    display: flex ;
+    align-items: center ;
+    margin: 10px 20px ;
+}
+.swiper-button-next , .swiper-button-prev {
+    top: 35% !important ;
+}
+.body-categories {
+    padding: 0 10px ;
+    display: grid ;
+    position: relative ;
+    margin-top: -250px ;
+    z-index: 100 ;
+    width: 100% ;
+    grid-template-columns : 25% 25% 25% 25% 
+    
+}
+.random-products {
+    padding: 0 10px ;
+    display: grid ;
+    position: relative ;
+    z-index: 100 ;
+    width: 100% ;
+    grid-template-columns : 25% 25% 25% 25% 
+}
+.category-item0 {
+    grid-column: 1 / 2 ;
+    grid-row: 1 / 2 ;
+}
+.category-item1 {
+    grid-column: 2 / 3 ;
+    grid-row: 1 /2 ;
+}
+.category-item2 {
+    grid-column: 3 / 4 ;
+    grid-row: 1/ 2 ;
+}
+.category-item3 {
+    grid-column: 4 / 5 ;
+    grid-row: 1/ 2 ;
+}
+.body-users {
+    padding: 0 10px ;
+    display: grid ;
+    z-index: 100 ;
+    width: 100% ;
+    grid-template-columns : 25% 25% 25% 25%  
+}
+
+@media screen and (max-width: 1024px) {
+    .body-categories {
+        grid-template-columns : 50% 50% !important  ;
+        grid-template-rows: 50% 50% !important ; 
+    }
+} 
+
+@media screen and (max-width: 670px) {
+    .body-categories {
+        grid-template-rows: 25% 25% 25% 25% !important ;
+        grid-template-columns : 100% !important ;
+    }
+} 
+
+
+@media screen and (max-width: 1024px) {
+    .body-users {
+        grid-template-columns : 50% 50% !important  ;
+        grid-template-rows: 50% 50% !important ; 
+    }
+} 
+
+@media screen and (max-width: 670px) {
+    .body-users {
+        grid-template-rows: 25% 25% 25% 25% !important ;
+        grid-template-columns : 100% !important;
+    }
+} 
+
+
+.MuiPaper-root.categories.MuiPaper-elevation1.MuiPaper-rounded {
+    background-color: #EAEDED
+}
+.MuiCard-root {
+    background-color: white !important ;
+}

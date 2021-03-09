@@ -1,0 +1,173 @@
+.navbar {
+    background-color: #131921 ;
+    width: 100% ;
+    display: flex ;
+    align-items: stretch ;
+    justify-content : space-evenly ;
+    height : 70px ;
+    color: white ;
+}
+.link {
+    text-decoration : none !important ;
+    color : inherit !important ;
+}
+.navbar > img {
+    width: 110px !important ;
+    height: 60px !important ;
+    object-fit: contain ;
+    margin: 5px 0px ;
+    margin-left: 20px ;
+    cursor: pointer ;
+    padding-top: 15px ;
+    padding-left: 5px;
+    padding-right: 5px ;
+    border: 1px solid transparent ;
+    transition: border 200ms ease-in-out ;
+}
+.navbar > img:hover {
+    border: 1px solid white ;
+}
+.message-container {
+    position: absolute ;
+    top: 70px ;
+    z-index: 200 ;
+    right: 0 ;
+}
+.deliver {
+    text-decoration: none ;
+    color: inherit; 
+    margin: 5px 0px ;
+    display: flex ;
+    flex-direction: column ;
+    justify-content: center;
+    box-sizing : none ;
+    border: 1px solid transparent ;
+    text-align: left;
+    padding: 0 10px ;
+    transition : border .2s ease-in-out ;
+    cursor: pointer ;
+}
+.deliver:hover {
+    border: 1px solid white ;
+}
+.deliver > span {
+    font-weight: 400 ;
+    font-size: 14px ;
+    color: rgb(175, 169, 169) ;
+}
+
+.navbar-search {
+    flex: 0.8 ;
+}
+.navbar-search > form {
+    width: 100% ;
+    height: 100% ;
+    display: flex ;
+    align-items: center;
+}
+
+.navbar-search input {
+    padding: 11.5px 10px ;
+    outline: none ;
+    border: none ;
+    flex: .9 ;
+    padding: auto auto ;
+}
+.deliver-lebanon {
+    display: flex ;
+    margin: 5px 0px ;
+    align-items : flex-end ;
+    cursor: pointer ;
+    padding: 0 10px ;
+    border: 1px solid transparent ;
+    transition: border .2s  ease-in-out;
+}
+.deliver-lebanon:hover {
+    border: 1px solid white ;
+}
+.deliver-leb > span {
+    font-weight: 400 ;
+    font-size: 14px ;
+    color: rgb(175, 169, 169) 
+}
+.deliver-icon {
+    position: relative;
+    margin-right: 3px ;
+    margin-bottom: -12px ;
+}
+.deliver-leb {
+    display: flex ;
+    flex-direction: column ;
+}
+.navbar-search button {
+    margin: 0 ;
+    background-color : #F3A847 ;
+    flex: .1 ;
+    cursor: pointer ;
+    border: none ;
+    outline: none ;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    transition : opacity 200ms ease-in-out ;
+}
+.navbar-search button:hover {
+    opacity: .8 ;
+}
+.deliver > span {
+    transition: opacity .3s ease-in-out ;
+}
+.navbar-login > span {
+    font-size: 14px ;
+    font-weight: 500;
+}
+.navbar-cart {
+    text-decoration: none ;
+    color: inherit ;
+    display: flex ;
+    align-items: flex-end ;
+    margin: 5px 0 ;
+    border: 1px solid transparent  ;
+    transition: border 200ms ease-in-out ;
+    padding: 0 10px;
+    cursor: pointer ;
+}
+.cart-number {
+    display: flex ;
+    flex-direction: column;
+    align-items: center ;
+}
+.cart-number > strong {
+    color: #F07A17 ;
+}
+.navbar-cart > strong {
+    margin-bottom: 3px ;
+    margin-left : 3px ;
+}
+.deliver-lebanon {
+    display: flex ;
+    align-items: center ;
+}
+.navbar-cart:hover {
+    border: 1px solid white ;
+}
+.MuiIconButton-label {
+    font-size: 20px !important;
+}
+@media screen and (max-width: 1024px) {
+    .deliver {
+        display: none ;
+    }
+    .navbar {
+        justify-content: space-between;
+        padding: 0 5px ;
+    }
+    .navbar-cart {
+        display: none ;
+    }
+    .navbar > img {
+        margin-left : 0 ;
+    }
+    .deliver-lebanon {
+        display : none ;
+    }
+}

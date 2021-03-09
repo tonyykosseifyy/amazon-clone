@@ -1,0 +1,86 @@
+.sign {
+    display: flex ;
+    flex-direction: column ;
+    width: 100% ;
+    align-items: center ;
+    background-color: white ;
+    height: 100% !important ;
+    min-height: 500px ;
+}
+.sign-in-title {
+    margin: 15px 0px ;
+}
+.sign > img {
+    width: 200px ;
+    object-fit: contain ;
+}
+
+.sign-in {
+    margin: 40px 0px ;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px ;
+    padding: 20px 20px ;
+    width: 400px ;
+}
+.sign-in > h1 {
+    font-weight: 500 ;
+}
+.sign-in-form {
+    margin: 20px 0px ;
+}
+.error {
+    color: red ;
+    width: 100% ;
+    display: block ;
+}
+.sign-p {
+    margin: 8px ;
+    font-weight: 500 ;
+}
+.sign-in-form > input {
+    width: 100% ;
+    margin: 5px  0;
+    padding: 7px 10px ;
+    outline: none ;
+    border-radius: 5px ;
+    border: 1px solid gray  ;
+}
+.sing-link {
+    text-decoration: none ;
+    color: #00b8FC ;
+    transition: all 200ms ease-in-out ;
+    display: block 
+}
+.fade-container {
+    position: absolute ;
+    top: 10px ;
+    right: 0 ;
+}
+.close {
+    cursor: pointer ;
+}
+.sign-fade {
+    background-color: #4B4B4B ;
+    color: white ;
+    padding: 8px 10px ;
+    border-top-left-radius: 8px ;
+    border-bottom-left-radius: 8px ;
+    display: flex ;
+    align-items: center ;
+    justify-content: space-between ;
+    min-width: 180px ;
+}
+.sing-link:hover {
+    text-decoration : underline ;
+    color: #CA5B2D ;
+}
+.sign-in-links {
+    margin : 40px 0px ;
+    display: flex ;
+    justify-content : space-around ;
+}
+@media screen and (max-width: 700px) {
+    .sign-in {
+        width: 80% ;
+    } 
+}

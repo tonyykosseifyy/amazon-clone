@@ -1,0 +1,51 @@
+.cart {
+    display: flex ;
+    background-color: #EAEDED  ;
+    min-height: 500px ; 
+}
+.reverse {
+    flex-direction: column ;
+}
+
+.cart-left , .cart-right {
+    background-color: white ;
+    margin: 20px 20px ;
+}
+.cart-left {
+    flex: .7 ;
+    display : flex ;
+    align-items: center ;
+}
+.cart-left > img {
+    object-fit: contain ;
+}
+.cart-link {
+    text-decoration: none ;
+    color: #00b8FC ;
+    margin: 10px 0px ;
+    display: block ;
+}
+.cart-link:hover {
+    text-decoration: underline ;
+}
+.cart-right {
+    flex : .3 ;
+    text-align: center ;
+    padding: 10px 10px ;
+}
+.cart-right-total {
+    text-align: left ;
+    padding: 10px 5px ;
+    font-weight: 600 ;
+}
+.cart-right-total p {
+    margin: 10px 0px ;
+}
+.cart-right-total span {
+    font-weight: 700 ;
+}
+@media screen and (max-width: 1024px) {
+    .cart {
+        flex-direction: column-reverse ;
+    }
+}
