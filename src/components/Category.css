@@ -31,3 +31,18 @@
 .MuiInputBase-input {
     padding: 9.9px 40px !important ;
 }
+
+.MuiInputBase-root {
+    background-color: #EAEDED ;
+    height: 100% ;
+    border-top-left-radius: 7px ;
+    border-bottom-left-radius: 7px ;
+}
+.MuiFormControl-root {
+    height: 100% ;
+    border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -ms-border-radius: 10px ;
+    -o-border-radius: 10px ;
+}

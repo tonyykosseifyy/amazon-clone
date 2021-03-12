@@ -9,6 +9,8 @@ import Fade from 'react-reveal/Fade' ;
 import Bounce from 'react-reveal/Bounce' ;
 import CloseIcon from '@material-ui/icons/Close' ;
 import { Redirect } from 'react-router-dom' ;
+import StyledAuth from './StyledAuth' ;
+
 function Sign(props) {
     const redirect = useSelector(state => state.history) ;
     const yellow = amber[700]
@@ -49,7 +51,8 @@ function Sign(props) {
             />
             <div className='sign-in'>
                 <h1>Sign-in</h1>
-                <form onSubmit={(e) => handleSubmit(e)} className='sign-in-form'>
+                <StyledAuth />
+                 <form onSubmit={(e) => handleSubmit(e)} className='sign-in-form'>
                     <strong><label htmlFor='firstname'>First Name : </label></strong><br/>
                     <input value={user.firstname} name='firstname' onChange={(e) => handleChange(e)} className='first' id='firstname' type='name'/><br/>
                     <Bounce cascade collapse text when={submit && !user.firstname}><p className='error'>First Name is required !</p></Bounce>
@@ -65,7 +68,7 @@ function Sign(props) {
                     >
                 Submit </Button> 
                 
-                </form> 
+                </form>
                 
             </div> 
                 
@@ -85,4 +88,4 @@ function Sign(props) {
 
 export default Sign ;
 
-/* */
+/*  */

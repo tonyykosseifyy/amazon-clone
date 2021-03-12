@@ -21,7 +21,7 @@ export default function ControlledOpenSelect({ categoryName }) {
   };
 
   return (
-    <div>
+    <div style={{height: '100%'}}>
       <FormControl >
         
         <Select
