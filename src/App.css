@@ -1,2 +1,5 @@
-
+a:hover , a:focus {
+    text-decoration: inherit ;
+    color: inherit ;
+}
 

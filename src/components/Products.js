@@ -9,6 +9,7 @@ import { useDispatch , useSelector } from 'react-redux' ;
 import { addProduct , removeProduct  } from '../actions' ;
 import { Link } from 'react-router-dom' ;
 import Fade from 'react-reveal/Fade'
+import RemoveShoppingCartIcon from "@material-ui/icons/RemoveShoppingCart" ;
 
 function Products({item , index , atCart , render}) {
     const darkTheme = useSelector(state=> state.darkTheme) ;
@@ -52,7 +53,7 @@ function Products({item , index , atCart , render}) {
         <div className={`single-product ${darkTheme ? 'black' : ''} ${atCart ? 'cart-left' : 'withmargin'}`} style={{backgroundColor : darkTheme ? '#282828' : ''}}>
             { item ? <img src={item.image} alt={item.title} /> : <Skeleton className='skeleton1' variant='rect' height={350} width={440} />}
             <div className='product-info' >
-                { item ? <h1>{item.title}</h1> : <Skeleton variant='text' height={160} />}
+                 <h1>{ item ? item.title : <Skeleton variant='text' height={120} /> }</h1> 
                 {item ? <strong><span>price :</span> ${item.price}</strong> : <Skeleton variant='text' height={20} width={120} />}
                 { item ? 
                 <div>
@@ -72,7 +73,7 @@ function Products({item , index , atCart , render}) {
                 >
                 { !atCart ? 'Add To Cart' : 'Remove From Cart'} </Button> : <Skeleton className='skeleton2'  variant='rect' height={40} width={200} />}
                 <Fade when={stored}>
-                    <h2>Item {!atCart ? 'added' : 'removed'} </h2>
+                    <h2>Item {!atCart ? 'added' : 'removed'} {!atCart ? <AddShoppingCartIcon /> : <RemoveShoppingCartIcon /> }</h2>
                 </Fade>
             </div>
         </div>

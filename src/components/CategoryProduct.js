@@ -23,8 +23,7 @@ function CategoryProduct({category , clsName}) {
         setCategoryProduct(data) ;
     }
     useEffect(() => {
-            fetchCategoryProducts() ;
-        
+        fetchCategoryProducts() ;
     }, [])
     const handleChange = e => {
         setChanged(true) ;

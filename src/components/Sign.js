@@ -19,7 +19,7 @@ function Sign(props) {
     const [ submit , setSubmit ] = useState(false) ;
 
     setTimeout(() => {
-        setClosed(true)
+        setClosed(true) ;
     }, 3000);
     const [user , setUser] = useState({
         firstname : '' ,
@@ -48,7 +48,7 @@ function Sign(props) {
             alt='amazon-logo' 
             />
             <div className='sign-in'>
-                <h1>Sign-Up</h1>
+                <h1>Sign-in</h1>
                 <form onSubmit={(e) => handleSubmit(e)} className='sign-in-form'>
                     <strong><label htmlFor='firstname'>First Name : </label></strong><br/>
                     <input value={user.firstname} name='firstname' onChange={(e) => handleChange(e)} className='first' id='firstname' type='name'/><br/>
@@ -65,7 +65,7 @@ function Sign(props) {
                     >
                 Submit </Button> 
                 
-                </form>
+                </form> 
                 
             </div> 
                 
@@ -84,3 +84,5 @@ function Sign(props) {
 }
 
 export default Sign ;
+
+/* */

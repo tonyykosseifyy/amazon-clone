@@ -27,6 +27,7 @@
 }
 .cart-link:hover {
     text-decoration: underline ;
+    color: #00b8FC ;
 }
 .cart-right {
     flex : .3 ;
