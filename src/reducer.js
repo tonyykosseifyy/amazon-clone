@@ -1,8 +1,9 @@
  export const initialState = {
     //sign in 
     user : {
-        firstname : null ,
-        lastname: null
+        displayName : null ,
+        email: null ,
+        photoURL : null
     } ,
     //shopping 
     categories : null ,
@@ -41,9 +42,9 @@ export function reducer(state=initialState , action) {
             return {
                 ...state ,
                 user : {
-                    firstname : action.playload.firstname ,
-                    lastname: action.playload.lastname
-                    
+                    displayName : action.playload.displayName ,
+                    email : action.playload.email ,
+                    photoURL : action.playload.photoURL
                     }
             }
         case 'ADD_TO_CART' :

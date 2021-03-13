@@ -1,7 +1,10 @@
 import React, { useEffect , useState } from 'react';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase';
- 
+import { signIn } from '../actions' ;
+import { useDispatch } from 'react-redux' ;
+
+
 // Configure Firebase.
 const config = {
     apiKey: "AIzaSyBkbYqlHTV7i-6mihF3CUpOJK5lOKkSykA",
@@ -15,6 +18,7 @@ const config = {
 firebase.initializeApp(config);
  
 const StyledAuth = () => {
+  const dispatch = useDispatch() ;
     const [ user , setUser ] = useState() ;
  
   // Configure FirebaseUI.
@@ -37,7 +41,13 @@ const StyledAuth = () => {
   // Listen to the Firebase Auth state and set the local state.
   useEffect(() => {
     firebase.auth().onAuthStateChanged(
-        (user) => setUser(user)
+        (user) => {
+          user && dispatch(signIn({
+            displayName: user.displayName ,
+            email: user.email ,
+            photoURL : user.photoURL 
+          }))
+        }
     );
   }) 
   
@@ -45,8 +55,6 @@ const StyledAuth = () => {
     if (!user) {
       return (
         <div>
-          <h1>My App</h1>
-          <p>Please sign-in:</p>
           <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
         </div>
       );

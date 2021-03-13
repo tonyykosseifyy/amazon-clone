@@ -12,20 +12,15 @@ import { Redirect } from 'react-router-dom' ;
 import StyledAuth from './StyledAuth' ;
 
 function Sign(props) {
-    const redirect = useSelector(state => state.history) ;
     const yellow = amber[700]
     const dispatch = useDispatch() ;
-    const loggedIn = useSelector(state => state.user.firstname) ;
-
+    const userState = useSelector(state => state.user) ;
     const [closed , setClosed ] = useState(false )
     const [ submit , setSubmit ] = useState(false) ;
 
-    setTimeout(() => {
-        setClosed(true) ;
-    }, 3000);
+    
     const [user , setUser] = useState({
-        firstname : '' ,
-        lastname : ''
+        firstname : ''
     })
     const handleChange = e => {
         setUser({
@@ -40,10 +35,11 @@ function Sign(props) {
             dispatch(signIn(user)) 
         }
     }
-    console.log(props.match)
+
+    console.log(userState ,' user namee---------------------------')
     return (
         <>
-        { !loggedIn ? <>
+        { !userState?.displayName ? <>
         <div className='sign'>
             <img 
             src='https://vrzone.com/wp-content/uploads/2013/10/amazon-logo.png' 
@@ -55,10 +51,6 @@ function Sign(props) {
                  <form onSubmit={(e) => handleSubmit(e)} className='sign-in-form'>
                     <strong><label htmlFor='firstname'>First Name : </label></strong><br/>
                     <input value={user.firstname} name='firstname' onChange={(e) => handleChange(e)} className='first' id='firstname' type='name'/><br/>
-                    <Bounce cascade collapse text when={submit && !user.firstname}><p className='error'>First Name is required !</p></Bounce>
-                    <strong><label htmlFor='lastname'>Last Name : </label></strong><br/>
-                    <input name='lastname' value={user.lastname} onChange={(e) => handleChange(e)} id='lastname' type='name'/>
-                    <Bounce cascade collapse text when={submit && !user.lastname}><p className='error'>Last Name is required !</p></Bounce>
                     <Button
                     onClick={e => handleChange(e)} 
                     type='submit'
@@ -66,7 +58,8 @@ function Sign(props) {
                     variant='contained' 
                     style={{ backgroundColor : amber[800] , fontFamily: 'Open Sans, sans-serif' ,width: '100%' , marginTop: '20px'}}
                     >
-                Submit </Button> 
+                        Submit 
+                    </Button> 
                 
                 </form>
                 

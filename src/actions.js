@@ -25,7 +25,7 @@ export const randomProducts = proudcts => {
     }
 } ;
 export const signIn = info => {
-    console.log(info)
+    console.log('dispatched infooo' . info )
     return {
         type: 'SIGN_IN' ,
         playload: info 

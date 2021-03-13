@@ -10,7 +10,7 @@ import './App.css';
 
 
 function App() {
-    const loggedIn = useSelector(state => state.user.firstname)
+    const user = useSelector(state => state.user.displayName)
     const dispatch = useDispatch() ;
     const categories = useSelector(state => state?.categories) ;
     async function fetchCategories() {
@@ -25,7 +25,7 @@ function App() {
         <Router>
             <Switch>  
                     <Route exact path='/sign-in' component={Sign}/>
-                     { loggedIn ? '' : <Redirect from='/' to='/sign-in' />}
+                     { !user ? '' : <Redirect from='/' to='/sign-in' />}
                     <Route exact path='/' component={Home}/>
                     <Route exact path='/cart' component={Cart}/>
                     
