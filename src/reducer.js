@@ -39,6 +39,7 @@ export function reducer(state=initialState , action) {
                 randomProducts : action.playload 
             }
         case 'SIGN_IN' : 
+            console.log('reduucerrrrrrrrr')
             return {
                 ...state ,
                 user : {

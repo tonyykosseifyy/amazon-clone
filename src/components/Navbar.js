@@ -18,7 +18,7 @@ function Navbar({category , handleChange}) {
     const [open, setOpen ] = useState(false) ;
     const dispatch = useDispatch() ;
     const cart = useSelector(state => state.cart)
-    const loggedIn = useSelector(state => state.user.firstname) ;
+    const loggedIn = useSelector(state => state.user.displayName) ;
     const handleSubmit = (e) => {
         e.preventDefault() ;
     }

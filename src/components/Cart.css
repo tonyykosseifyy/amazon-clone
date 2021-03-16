@@ -4,7 +4,7 @@
     min-height: 500px ; 
 }
 .reverse {
-    flex-direction: column ;
+    flex-direction: column-reverse ;
 }
 
 .cart-left , .cart-right {
@@ -49,4 +49,11 @@
     .cart {
         flex-direction: column-reverse ;
     }
+}
+
+.dashborad {
+    padding: 20px 60px ;
+    display: flex ;
+    justify-content: space-between ; 
+    align-items: center ;
 }

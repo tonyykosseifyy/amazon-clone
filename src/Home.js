@@ -8,7 +8,7 @@ import { addUsers , randomProducts } from './actions' ;
 import { Redirect } from 'react-router-dom' ;
 
 function Home() {
-    const loggedIn = useSelector(state => state.user.firstname)
+    const loggedIn = useSelector(state => state.user.displayName)
     const dispatch = useDispatch() ;
     const category = useSelector(state => state?.categories) ;
     async function fetchUsers() {

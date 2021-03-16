@@ -2,7 +2,7 @@ import React, { useEffect , useState } from 'react';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase';
 import { signIn } from '../actions' ;
-import { useDispatch } from 'react-redux' ;
+import { useDispatch , useSelector } from 'react-redux' ;
 
 
 // Configure Firebase.
@@ -17,9 +17,9 @@ const config = {
 }
 firebase.initializeApp(config);
  
-const StyledAuth = () => {
+const StyledAuth = ({ setUserLog }) => {
   const dispatch = useDispatch() ;
-    const [ user , setUser ] = useState() ;
+    const userState = useSelector(state => state.user.displayName)
  
   // Configure FirebaseUI.
   const uiConfig = {
@@ -40,7 +40,9 @@ const StyledAuth = () => {
  
   // Listen to the Firebase Auth state and set the local state.
   useEffect(() => {
-    firebase.auth().onAuthStateChanged(
+    console.log('callled')
+    if ( !userState ) {
+       firebase.auth().onAuthStateChanged(
         (user) => {
           user && dispatch(signIn({
             displayName: user.displayName ,
@@ -48,11 +50,13 @@ const StyledAuth = () => {
             photoURL : user.photoURL 
           }))
         }
-    );
+      );
+    }
+   
   }) 
   
-    console.log('styled user =>>>' , user)
-    if (!user) {
+    console.log('styled user =>>>' , userState )
+    if (!userState) {
       return (
         <div>
           <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
@@ -62,8 +66,8 @@ const StyledAuth = () => {
     return (
       <div>
         <h1>My App</h1>
-        <p>Welcome {user.displayName}! You are now signed-in!</p>
-        <p>Welcome {user.email}! You are now signed-in!</p>
+        <p>Welcome {userState.displayName}! You are now signed-in!</p>
+        <p>Welcome {userState.email}! You are now signed-in!</p>
         <a onClick={() => firebase.auth().signOut()}>Sign-out</a>
       </div>
     );

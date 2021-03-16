@@ -14,32 +14,31 @@ import StyledAuth from './StyledAuth' ;
 function Sign(props) {
     const yellow = amber[700]
     const dispatch = useDispatch() ;
-    const userState = useSelector(state => state.user) ;
     const [closed , setClosed ] = useState(false )
-    const [ submit , setSubmit ] = useState(false) ;
-
-    
+    const userState  = useSelector(state => state.user)
     const [user , setUser] = useState({
-        firstname : ''
+        displayName : '' ,
+        email: null , 
+        photoURL : null
     })
     const handleChange = e => {
         setUser({
-            ...user ,
-            [e.target.name] : e.target.value
+            ...user , 
+            displayName : e.target.value 
         }) ;
     }
     const handleSubmit = (e) => {
-        setSubmit(true) ;
         e.preventDefault() ;
-        if (user.firstname && user.lastname) {
-            dispatch(signIn(user)) 
+        if (user.displayName) {
+            dispatch(signIn(user)) ;
+            console.log('submitedd')
         }
     }
 
-    console.log(userState ,' user namee---------------------------')
+
     return (
         <>
-        { !userState?.displayName ? <>
+        { !userState.displayName ? <>
         <div className='sign'>
             <img 
             src='https://vrzone.com/wp-content/uploads/2013/10/amazon-logo.png' 
@@ -48,11 +47,12 @@ function Sign(props) {
             <div className='sign-in'>
                 <h1>Sign-in</h1>
                 <StyledAuth />
+                <h2 style={{marginTop: '50px '}}>Or Sign in by name</h2>
                  <form onSubmit={(e) => handleSubmit(e)} className='sign-in-form'>
-                    <strong><label htmlFor='firstname'>First Name : </label></strong><br/>
+                    <strong><label htmlFor='firstname'>Name : </label></strong><br/>
                     <input value={user.firstname} name='firstname' onChange={(e) => handleChange(e)} className='first' id='firstname' type='name'/><br/>
                     <Button
-                    onClick={e => handleChange(e)} 
+                    onClick={e => handleSubmit(e)} 
                     type='submit'
                     size='medium'
                     variant='contained' 
@@ -62,7 +62,6 @@ function Sign(props) {
                     </Button> 
                 
                 </form>
-                
             </div> 
                 
         </div>
@@ -74,7 +73,10 @@ function Sign(props) {
                 </div>
             </Fade>
         </div>
-        </> : <Redirect to='/' /> }
+        </> : 
+        
+        <Redirect to='/' from='sign-in' /> 
+        }
         </> 
     )
 }

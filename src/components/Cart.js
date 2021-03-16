@@ -4,9 +4,11 @@ import { useSelector } from 'react-redux' ;
 import { Link } from 'react-router-dom' ;
 import Navbar from './Navbar' ;
 import Products from './Products' ;
+import Avatar from '@material-ui/core/Avatar' ;
 
 function Cart() {
-    const darkTheme = useSelector(state => state.darkTheme)
+    const darkTheme = useSelector(state => state.darkTheme) ;
+    const user = useSelector(state => state.user)
     const cart = useSelector(state => state.cart) ;
     const [clicked , setClicked ] = useState(false)
     const [payAccount , setPayAccount] = useState(0) ;
@@ -28,7 +30,17 @@ function Cart() {
     }
     return (
         <div >
-        <Navbar />
+        <Navbar /> 
+        { !user.email && !user.photoURL ? '' :
+        <div className='dashborad' style={{ backgroundColor: darkTheme ? '#101010' : '' , color: darkTheme ? 'white' : ''}} >
+            <div className='dashborad-left'>
+                <h3>{user.displayName}</h3>
+                { user.email && <strong>email: <a href={`mailto:${user.email}`} >{user.email} </a></strong> }
+            </div>
+            { false ? <Avatar alt={user.displayName} src={user.photoURL} style={{minHeight: '65px' , minWidth: '65px'}} /> : <Avatar style={{minHeight: '65px' , minWidth: '65px', backgroundColor: darkTheme && '#282828'}}>{user.displayName.charAt(0)}</Avatar>}
+        </div> 
+        }
+        
         <div className={`cart ${cart.length ? 'reverse' : '' }`} style={{ backgroundColor: darkTheme ? '#101010' : '' , color: darkTheme ? 'white' : ''}} >
         { !cart.length ?
             <div className='cart-left' style={{ backgroundColor: darkTheme ? '#282828' : '' , color: darkTheme ? 'white' : ''}}>
