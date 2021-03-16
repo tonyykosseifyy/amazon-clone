@@ -37,7 +37,7 @@ function Cart() {
                 <h3>{user.displayName}</h3>
                 { user.email && <strong>email: <a href={`mailto:${user.email}`} >{user.email} </a></strong> }
             </div>
-            { false ? <Avatar alt={user.displayName} src={user.photoURL} style={{minHeight: '65px' , minWidth: '65px'}} /> : <Avatar style={{minHeight: '65px' , minWidth: '65px', backgroundColor: darkTheme && '#282828'}}>{user.displayName.charAt(0)}</Avatar>}
+            { user.photoURL ? <Avatar alt={user.displayName} src={user.photoURL} style={{minHeight: '65px' , minWidth: '65px'}} /> : <Avatar style={{minHeight: '65px' , minWidth: '65px', backgroundColor: darkTheme && '#282828'}}>{user.displayName.charAt(0)}</Avatar>}
         </div> 
         }
         

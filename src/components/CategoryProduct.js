@@ -16,8 +16,8 @@ function CategoryProduct({category , clsName}) {
     const [input , setInput ] = useState('') ;
     const [ searchFailed , setSearchFailed ] = useState(false) ;
     const [display , setDisplay ] = useState([]) ;
-    const [categoryProduct , setCategoryProduct ] = useState() ;
-    const [ requested , setRequested ] = useState([0,0,0,0,0,0]) ;
+    const [categoryProduct , setCategoryProduct ] = useState([]) ;
+    const [ requested , setRequested ] = useState([]) ;
     async function fetchCategoryProducts() {
         const response = await fetch(`https://fakestoreapi.com/products/category/${category}`) ;
         const data = await response.json() ;
@@ -25,6 +25,9 @@ function CategoryProduct({category , clsName}) {
     }
     useEffect(() => {
         fetchCategoryProducts() ;
+        let arr = categoryProduct?.map((item , index ) => {return item.title })
+        arr.fill(0) ;
+        setCategoryProduct(arr) ;
     }, [])
     const handleChange = e => {
         setChanged(true) ;
