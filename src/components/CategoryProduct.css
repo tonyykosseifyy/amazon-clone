@@ -25,6 +25,8 @@
     font-weight: 400 ;  
     font-size:17px ; 
     text-align: center ;
+    display: block;
+    height: calc(100vh - 70px);
 }
 .product-info  .MuiSvgIcon-root {
     margin-left: -2.5px ;

@@ -1,7 +1,6 @@
 import React from 'react'
 import './Product.css' ;
 import StarIcon from '@material-ui/icons/StarRateRounded' ;
-import Card from '@material-ui/core/Card' ;
 import { Link } from 'react-router-dom'
 import Skeleton from '@material-ui/lab/Skeleton' ;
 import amber from '@material-ui/core/colors/amber' ;
@@ -11,7 +10,6 @@ import { useSelector } from 'react-redux' ;
 
 function Product({ info , index }) {
     const darkTheme = useSelector(state => state?.darkTheme) ;
-    const yellow = amber[700]
     let array = [1 , 2 ,3 ,4 ] ;   
     let newArray ;
     const randomNumber = (min , max ) => {
@@ -41,7 +39,7 @@ function Product({ info , index }) {
                 variant='contained' 
                 style={{ backgroundColor : amber[800] , fontFamily: 'Open Sans, sans-serif'}}
                 >
-                Add To Cart </Button></Link> : <Skeleton variant='rect'/>}
+                Learn More </Button></Link> : <Skeleton variant='rect'/>}
             </div>
         </div>
     )

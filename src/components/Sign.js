@@ -4,15 +4,12 @@ import Button from '@material-ui/core/Button' ;
 import amber from '@material-ui/core/colors/amber' ;
 import { useDispatch , useSelector } from 'react-redux'
 import { signIn } from '../actions' ;
-import { Link } from 'react-router-dom' ;
 import Fade from 'react-reveal/Fade' ;
-import Bounce from 'react-reveal/Bounce' ;
 import CloseIcon from '@material-ui/icons/Close' ;
 import { Redirect } from 'react-router-dom' ;
 import StyledAuth from './StyledAuth' ;
 
 function Sign(props) {
-    const yellow = amber[700]
     const dispatch = useDispatch() ;
     const [closed , setClosed ] = useState(false )
     const userState  = useSelector(state => state.user)

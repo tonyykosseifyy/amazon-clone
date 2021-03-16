@@ -1,20 +1,12 @@
 import React, { useEffect  , useState } from 'react'
 import Navbar from './Navbar' ;
 import './CategoryProduct.css' ; 
-import Skeleton from '@material-ui/lab/Skeleton' ; 
-import StarIcon from '@material-ui/icons/StarRateRounded' ;
-import Button from '@material-ui/core/Button' ;
-import amber from '@material-ui/core/colors/amber' ;
-import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart' ;
 import Products from './Products' ;
 import { useSelector } from 'react-redux' ;
-
+import Fade from 'react-reveal/Fade' ;
 function CategoryProduct({category , clsName}) {
-    const yellow = amber[700]
     const darkTheme = useSelector(state => state.darkTheme)
-    const [changed , setChanged] = useState(false) ;
     const [input , setInput ] = useState('') ;
-    const [ searchFailed , setSearchFailed ] = useState(false) ;
     const [display , setDisplay ] = useState([]) ;
     const [categoryProduct , setCategoryProduct ] = useState([]) ;
     const [ requested , setRequested ] = useState([]) ;
@@ -30,7 +22,6 @@ function CategoryProduct({category , clsName}) {
         setCategoryProduct(arr) ;
     }, [])
     const handleChange = e => {
-        setChanged(true) ;
         setInput(e.target.value)
     }
     const object = [1 , 2, 3, 4]
@@ -43,7 +34,6 @@ function CategoryProduct({category , clsName}) {
             let requst = [] ;
             s.fill(' ') ;
             console.log(`s =>> ${s}`) ;
-            let numb ;
             categoryProduct?.filter((item , index) => {
                 if(item.title.toUpperCase().search(input.toUpperCase()) > -1 ) {
                     array[index] = false ;
@@ -62,7 +52,7 @@ function CategoryProduct({category , clsName}) {
         <div style={{ backgroundColor: darkTheme ? '#101010' : '#EAEDED'}}>
             <Navbar category={category} handleChange={handleChange} />
             <div className='category-product'>
-                { categoryProduct ? categoryProduct?.map((item , index ) => (
+                { categoryProduct.length > 0  ? categoryProduct?.map((item , index ) => (
                     <div style={{display : !display[index] || !input ? 'flex' : 'none' }}>
                         <Products item={item} index={index} requested={requested[index]} input={input} />
                     </div>
@@ -73,7 +63,12 @@ function CategoryProduct({category , clsName}) {
             </div>
             { display.every((item) => {
                 return item === true 
-            }) && input ? <p className='search-failed'>No results found for <strong>"{input}"</strong></p> : null}
+            }) && input ? 
+            <Fade right>
+            <p style={{color: darkTheme && 'white' , minHeight: '100%'}} className='search-failed'>No results found for <strong>"{input}"</strong></p>
+            </Fade>
+             : 
+             null}
         </div>
     )
 } ;

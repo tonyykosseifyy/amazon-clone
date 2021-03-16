@@ -157,8 +157,7 @@
         display: none ;
     }
     .navbar {
-        justify-content: space-between;
-        padding: 0 5px ;
+        padding: 20px 5px ;
     }
     .navbar-cart {
         display: none ;
@@ -168,5 +167,12 @@
     }
     .deliver-lebanon {
         display : none ;
+    }
+    .navbar-search button {
+        display: none ;
+    }
+    .navbar-search input {
+        border-top-right-radius: 7px;
+        border-bottom-right-radius: 7px ;
     }
 }

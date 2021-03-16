@@ -8,7 +8,6 @@ import { addCategories } from './actions' ;
 import Cart from './components/Cart'
 import './App.css'; 
 
-
 function App() {
     const user = useSelector(state => state.user.displayName)
     const dispatch = useDispatch() ;

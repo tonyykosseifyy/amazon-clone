@@ -6,7 +6,6 @@ import 'swiper/swiper.scss' ;
 import 'swiper/components/navigation/navigation.scss' ;
 import { useSelector } from 'react-redux' ;
 import Categories from './Categories' ;
-import Users from './Users' ;
 import ArrowForwardRoundedIcon from '@material-ui/icons/ArrowForwardRounded' ;
 import Product from './Product' ;
 SwiperCore.use([Navigation , A11y , Autoplay , Keyboard]) ;
@@ -14,7 +13,6 @@ SwiperCore.use([Navigation , A11y , Autoplay , Keyboard]) ;
 function Body() {
     const array = [1,2,3,4] ;
     const categories = useSelector(state => state.categories) ;
-    const users = useSelector(state => state?.users)
     const randomProducts = useSelector(state => state?.randomProducts) ;
     const darkTheme = useSelector(state => state?.darkTheme) ;
     console.log(darkTheme)
@@ -66,18 +64,10 @@ function Body() {
                             
                         ))}
                     </div>
-                
-                {/*<div className='body-users'>
-                    {users?.map((item , index) => (
-                        <Users info={item} key={index} className={`category-item${index}`} />
-                    ))}
-                </div>*/}
+
             </div>
         
     )
 } ;
 
 export default Body ;
-//https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Hero/Fuji_TallHero_Home_v2_en_US_1x._CB429090084_.jpg
-//https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Hero/Fuji_TallHero_Computers_1x._CB432469755_.jpg
-//https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2021/NYNY/Fuji_TallHero_NYNY_en_US_1x._CB412256579_.jpg

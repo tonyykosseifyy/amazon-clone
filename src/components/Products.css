@@ -6,6 +6,7 @@
 }
 .product-info > h1 {
     margin: 7px 0px ;
+    font-size: 2.3rem ;
 }
 .product-info > h2 {
     font-size: 1.2em ;
@@ -74,4 +75,11 @@
 .product-info .MuiButtonBase-root {
     margin-top: 20px !important ; 
 }
-
+@media screen and (max-width: 1024px) {
+    .product-info > h1 {
+        font-size: 1.8rem ;
+    }
+    .single-product > img {
+        margin: none ;
+    }
+}

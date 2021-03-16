@@ -7,13 +7,11 @@ import amber from '@material-ui/core/colors/amber' ;
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart' ;
 import { useDispatch , useSelector } from 'react-redux' ;
 import { addProduct , removeProduct  } from '../actions' ;
-import { Link } from 'react-router-dom' ;
 import Fade from 'react-reveal/Fade'
 import RemoveShoppingCartIcon from "@material-ui/icons/RemoveShoppingCart" ;
 
 function Products({item , index , atCart , render , requested , input}) {
     const darkTheme = useSelector(state=> state.darkTheme) ;
-    const loggedIn = useSelector(state => state?.user?.firstname)
     const cart = useSelector(state => state?.cart) 
     const [rating , setRating] = useState() ;
     const [ stored , setStored ] = useState(false) 
@@ -57,7 +55,7 @@ function Products({item , index , atCart , render , requested , input}) {
                  <> 
                     {item.title.slice(0 ,requested )}
                     <strong style={{color: '#CD8E3C'}}>{item.title.slice(requested , requested + input?.length )}</strong>
-                    <span>{item.title.slice(requested + input.length , item.title.length )}</span>
+                    <span>{item.title.slice(requested + input?.length , item.title.length )}</span>
                  </>
                  : 
                  <Skeleton variant='text' height={120} /> }</h1> 

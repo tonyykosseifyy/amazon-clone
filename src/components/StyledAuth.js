@@ -1,4 +1,4 @@
-import React, { useEffect , useState } from 'react';
+import React, { useEffect } from 'react';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase';
 import { signIn } from '../actions' ;
@@ -54,8 +54,6 @@ const StyledAuth = ({ setUserLog }) => {
     }
    
   }) 
-  
-    console.log('styled user =>>>' , userState )
     if (!userState) {
       return (
         <div>
@@ -63,14 +61,6 @@ const StyledAuth = ({ setUserLog }) => {
         </div>
       );
     }
-    return (
-      <div>
-        <h1>My App</h1>
-        <p>Welcome {userState.displayName}! You are now signed-in!</p>
-        <p>Welcome {userState.email}! You are now signed-in!</p>
-        <a onClick={() => firebase.auth().signOut()}>Sign-out</a>
-      </div>
-    );
   }
 
 

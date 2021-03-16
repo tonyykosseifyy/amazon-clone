@@ -8,9 +8,7 @@
     height: 500px !important ;
     object-fit: cover ;
 }
-.shop-category {
 
-}
 .cont-category {
     position: absolute ;
     top: 275px ;
@@ -18,6 +16,8 @@
     z-index: 200 ;
     display: flex ;
     align-items: center ;
+    pointer-events: none ;
+    
 }
 .cont-category:hover .arrow {
     transform: translateX(10px) ;
@@ -72,6 +72,9 @@
     width: 100% ;
     grid-template-columns : 25% 25% 25% 25% 
     
+}
+.message-container {
+    pointer-events: none ;
 }
 .random-products {
     padding: 0 10px ;

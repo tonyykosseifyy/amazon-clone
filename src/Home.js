@@ -1,6 +1,5 @@
 import React,{ useEffect } from 'react' ;
 import { useDispatch , useSelector } from 'react-redux' ;
-import { addCategories } from './actions' ;
 import './Home.css';
 import Navbar from './components/Navbar' ;
 import Body from './components/Body' ;
@@ -10,7 +9,6 @@ import { Redirect } from 'react-router-dom' ;
 function Home() {
     const loggedIn = useSelector(state => state.user.displayName)
     const dispatch = useDispatch() ;
-    const category = useSelector(state => state?.categories) ;
     async function fetchUsers() {
         const response = await fetch('https://fakestoreapi.com/users?limit=4') ;
         const users = await response.json() ;
