@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom' ;
 import Fade from 'react-reveal/Fade'
 import RemoveShoppingCartIcon from "@material-ui/icons/RemoveShoppingCart" ;
 
-function Products({item , index , atCart , render}) {
+function Products({item , index , atCart , render , requested , input}) {
     const darkTheme = useSelector(state=> state.darkTheme) ;
     const loggedIn = useSelector(state => state?.user?.firstname)
     const cart = useSelector(state => state?.cart) 
@@ -53,7 +53,14 @@ function Products({item , index , atCart , render}) {
         <div className={`single-product ${darkTheme ? 'black' : ''} ${atCart ? 'cart-left' : 'withmargin'}`} style={{backgroundColor : darkTheme ? '#282828' : ''}}>
             { item ? <img src={item.image} alt={item.title} /> : <Skeleton className='skeleton1' variant='rect' height={350} width={440} />}
             <div className='product-info' >
-                 <h1>{ item ? item.title : <Skeleton variant='text' height={120} /> }</h1> 
+                 <h1>{ item ? 
+                 <> 
+                    {item.title.slice(0 ,requested )}
+                    <strong style={{color: '#CD8E3C'}}>{item.title.slice(requested , requested + input?.length )}</strong>
+                    <span>{item.title.slice(requested + input.length , item.title.length )}</span>
+                 </>
+                 : 
+                 <Skeleton variant='text' height={120} /> }</h1> 
                 {item ? <strong><span>price :</span> ${item.price}</strong> : <Skeleton variant='text' height={20} width={120} />}
                 { item ? 
                 <div>
