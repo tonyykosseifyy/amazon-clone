@@ -13,8 +13,11 @@ import Tooltip from '@material-ui/core/Tooltip' ;
 import { toggleDarkTheme} from '../actions.js' ;
 import Fade from 'react-reveal/Fade' ;
 import CloseIcon from '@material-ui/icons/Close' ;
+import { getCountry } from './getCountry' ;
+
 
 function Navbar({category , handleChange}) {
+    const [ country , setCountry ] = useState('') ;
     const [open, setOpen ] = useState(false) ;
     const dispatch = useDispatch() ;
     const cart = useSelector(state => state.cart)
@@ -26,6 +29,10 @@ function Navbar({category , handleChange}) {
     const handleClick = () => {
         dispatch(toggleDarkTheme()) ;
     }
+    useEffect(() => {
+        getCountry(setCountry)
+    }, [])
+    
     useEffect(() => {
         setTimeout(() => {
             setOpen(false)
@@ -42,7 +49,7 @@ function Navbar({category , handleChange}) {
                 <LocationOnIcon className='deliver-icon'/>  
                 <div className='deliver-leb'>    
                     <span>Deliver to</span>             
-                    <strong>Lebanon</strong>    
+                    <strong>{country ? country : 'Lebanon'}</strong>    
                 </div>
                   
             </div>

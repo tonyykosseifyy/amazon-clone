@@ -28,6 +28,7 @@ function Cart() {
     const render = () => {
         setClicked(!clicked)
     }
+    
     return (
         <div >
         <Navbar /> 

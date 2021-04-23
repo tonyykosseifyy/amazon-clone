@@ -19,7 +19,7 @@ firebase.initializeApp(config);
  
 const StyledAuth = ({ setUserLog }) => {
   const dispatch = useDispatch() ;
-    const userState = useSelector(state => state.user.displayName)
+    const userState = useSelector(state => state.user)
  
   // Configure FirebaseUI.
   const uiConfig = {
@@ -30,7 +30,6 @@ const StyledAuth = ({ setUserLog }) => {
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
       firebase.auth.FacebookAuthProvider.PROVIDER_ID, 
       firebase.auth.TwitterAuthProvider.PROVIDER_ID, 
-      firebase.auth.GithubAuthProvider.PROVIDER_ID
     ],
     callbacks: {
       // Avoid redirects after sign-in.
@@ -41,7 +40,7 @@ const StyledAuth = ({ setUserLog }) => {
   // Listen to the Firebase Auth state and set the local state.
   useEffect(() => {
     console.log('callled')
-    if ( !userState ) {
+    if ( !userState.displayName) {
        firebase.auth().onAuthStateChanged(
         (user) => {
           user && dispatch(signIn({
@@ -54,14 +53,14 @@ const StyledAuth = ({ setUserLog }) => {
     }
    
   }) 
-    if (!userState) {
+    if (!userState.displayName ) {
       return (
         <div>
           <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
         </div>
       );
     }
-  }
+}
 
 
 export default StyledAuth ;
