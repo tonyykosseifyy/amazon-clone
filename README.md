@@ -8,8 +8,8 @@
 ###Sign in page ( Google , Facebook , Github , Twitter Authentication )
 
 ## Redux 
-.Add Items to the cart 
-.Remove Items from the cart 
-.user authentication
-.Dark/Light Mode 
-.Search for specific product 
+###Add Items to the cart 
+###Remove Items from the cart 
+###user authentication
+###Dark/Light Mode 
+###Search for specific product 
