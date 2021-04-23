@@ -7,7 +7,6 @@
 .Checkout Page ( all the purchased items , total cost , remove items )
 .Sign in page ( Google , Facebook , Github , Twitter Authentication )
 
-
 ## Redux 
 .user authentication
 .Dark/Light Mode 
