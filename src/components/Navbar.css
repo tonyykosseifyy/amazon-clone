@@ -152,7 +152,7 @@
 .MuiIconButton-label {
     font-size: 20px !important;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1040px) {
     .deliver {
         display: none ;
     }
@@ -174,5 +174,10 @@
     .navbar-search input {
         border-top-right-radius: 7px;
         border-bottom-right-radius: 7px ;
+    }
+}
+@media screen and (max-width: 400px) {
+    .navbar-search {
+        display: none ;
     }
 }
