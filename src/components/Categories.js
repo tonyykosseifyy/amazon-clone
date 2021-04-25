@@ -16,10 +16,10 @@ function Categories({ title  , name}) {
             case 'jewelery' :
                 src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4ry4XPSLFl8yzOVr34zDNvtq02t4WSuzqvw&usqp=CAU'
                 break;
-            case 'men clothing' : 
+            case "men's clothing" : 
                 src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPRIaJnD_yXaFl1qM8YggAZrHF1hfCW2TaSw&usqp=CAU'
                 break 
-            case 'women clothing' :
+            case "women's clothing" :
                 src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3BpZBsLy_eCPTTPtsMBtEuT4m7y5d_T9L9Q&usqp=CAU'
                 break
         }}
