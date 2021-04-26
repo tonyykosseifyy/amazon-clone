@@ -13,7 +13,7 @@
     justify-content: space-between;
 }
 .product:hover {
-    box-shadow: 3px 3px 14px #2B3743 !important;
+    box-shadow: 3px 3px 15px #4B4B4B !important;
 }
 
 .product > div {

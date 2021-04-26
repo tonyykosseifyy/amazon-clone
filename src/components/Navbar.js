@@ -14,14 +14,23 @@ import { toggleDarkTheme} from '../actions.js' ;
 import Fade from 'react-reveal/Fade' ;
 import CloseIcon from '@material-ui/icons/Close' ;
 import { getCountry } from './getCountry' ;
+import Menu from './Menu' ;
+import HomeIcon from '@material-ui/icons/Home' ;
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore' ;
 
 
 function Navbar({category , handleChange}) {
     const [ country , setCountry ] = useState('') ;
     const [open, setOpen ] = useState(false) ;
+    const [ navOpen , setNavOpen ] = useState(false) ;
+    const [ categoryOpen , setCategoryOpen ] = useState(false)
     const dispatch = useDispatch() ;
     const cart = useSelector(state => state.cart)
     const loggedIn = useSelector(state => state.user.displayName) ;
+    const ToggleNav = () => {
+        setNavOpen(false)
+        handleClick() ;
+    }
     const handleSubmit = (e) => {
         e.preventDefault() ;
     }
@@ -44,7 +53,33 @@ function Navbar({category , handleChange}) {
                 src='http://pngimg.com/uploads/amazon/amazon_PNG11.png' 
                 alt='amazon-logo' 
             />
-
+            <Menu setNavOpen={setNavOpen} navOpen={navOpen} />
+            <div className={`navbar-mobile ${navOpen && 'navbar-opened'}`}>
+                <div className='navbar-mobile-top'>
+                    <img 
+                        src='http://pngimg.com/uploads/amazon/amazon_PNG11.png' 
+                        alt='amazon-logo' 
+                    />
+                    <Menu setNavOpen={setNavOpen} navOpen={navOpen} />
+                </div>
+                 <div className={`nav-links-container ${navOpen && 'nav-open'}`}>
+                    <Link className='nav-links' to='/'><HomeIcon /> Home</Link>
+                    <Link className='nav-links' to='/cart' style={{justifyContent:'space-between'}}><div className='cart-nav'><ShoppingCartIcon /> Cart</div> <span>{cart.length}</span></Link>
+                    <div className='nav-links' onClick={() => ToggleNav()}>
+                        {darkTheme ? <Brightness7Icon /> : <Brightness4Icon />}
+                        Toggle {darkTheme ? 'Dark': 'Light'} Mode
+                    </div>
+                    <Link className={`nav-links expand ${categoryOpen && 'expand-more'}`} onClick={() => setCategoryOpen(!categoryOpen)}>Categories <ExpandMoreIcon /> </Link>                    
+                    <div className={`nav-links-category ${categoryOpen && 'nav-links-category-open'}`} style={{height: categoryOpen && '220px'}}>
+                        <Link className='nav-links' to="/men's clothing">Men's clothing</Link>
+                        <Link className='nav-links' to="/women's clothing">Women's clothing</Link>
+                        <Link className='nav-links' to='/jewelery'>Jewelery</Link> 
+                        <Link className='nav-links' to='/electronics'>Electornics</Link>
+                    </div>
+                    
+                 </div>
+            </div>
+            <div className='navbar-overlay' style={{ display:navOpen ? 'block' : 'none' }}></div>
             <div className='deliver-lebanon' >
                 <LocationOnIcon className='deliver-icon'/>  
                 <div className='deliver-leb'>    

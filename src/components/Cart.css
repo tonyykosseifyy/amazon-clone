@@ -15,9 +15,12 @@
     flex: .7 ;
     display : flex ;
     align-items: center ;
+    padding: 20px ;
 }
 .cart-left > img {
     object-fit: contain ;
+    max-width: 250px ;
+    margin: 30px ;
 }
 .cart-link {
     text-decoration: none ;
@@ -45,15 +48,41 @@
 .cart-right-total span {
     font-weight: 700 ;
 }
-@media screen and (max-width: 1024px) {
-    .cart {
-        flex-direction: column-reverse ;
-    }
-}
-
 .dashborad {
     padding: 20px 60px ;
     display: flex ;
     justify-content: space-between ; 
     align-items: center ;
+}
+@media screen and (max-width: 1024px) {
+    .cart {
+        flex-direction: column-reverse ;
+    }
+    .cart-left > img {
+        max-width: 150px ;
+    }
+}
+@media screen and (max-width: 700px) {
+    .cart-left {
+        flex-direction: column-reverse ;
+    }
+    .dashborad {
+        flex-direction: row-reverse ;
+        justify-content: center ;
+        padding: 10px  ;
+    }
+    .dashborad h3 {
+        font-size: 1rem
+    }
+    .MuiAvatar-root {
+        margin-right: 10px ;
+        transform: scale(0.6)    ;
+        -webkit-transform: scale(0.6)    ;
+        -moz-transform: scale(0.6)    ;
+        -ms-transform: scale(0.6)    ;
+        -o-transform: scale(0.6)    ;
+    }
+    .empty h1 {
+        font-size: 1.3rem ;
+    }
 }

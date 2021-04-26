@@ -2,3 +2,7 @@ a:hover , a:focus {
     text-decoration: inherit ;
     color: inherit ;
 }
+
+.app {
+    overflow-x: hidden ;
+}
