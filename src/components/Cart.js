@@ -10,7 +10,8 @@ function Cart() {
     const darkTheme = useSelector(state => state.darkTheme) ;
     const user = useSelector(state => state.user)
     const cart = useSelector(state => state.cart) ;
-    const [clicked , setClicked ] = useState(false)
+    const [clicked , setClicked ] = useState(false) ;
+    const [ navOpen , setNavOpen ] = useState(false) ;
     const [payAccount , setPayAccount] = useState(0) ;
     useEffect(() => {
         console.log('useEffect =>> ')
@@ -28,10 +29,14 @@ function Cart() {
     const render = () => {
         setClicked(!clicked)
     }
-    
+    window.addEventListener('resize' , () => {
+            if (window.innerWidth > 1040 ) {
+                setNavOpen(false) ;
+            }
+        })
     return (
-        <div >
-        <Navbar /> 
+        <div className={navOpen && 'overflow-hidden'} >
+        <Navbar openNav={(state) => setNavOpen(state)} /> 
         { !user.email && !user.photoURL ? '' :
         <div className='dashborad' style={{ backgroundColor: darkTheme ? '#101010' : '' , color: darkTheme ? 'white' : ''}} >
             <div className='dashborad-left'>

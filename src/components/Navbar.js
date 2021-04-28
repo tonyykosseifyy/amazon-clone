@@ -19,7 +19,7 @@ import HomeIcon from '@material-ui/icons/Home' ;
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore' ;
 
 
-function Navbar({category , handleChange}) {
+function Navbar({category , handleChange , openNav }) {
     const [ country , setCountry ] = useState('') ;
     const [open, setOpen ] = useState(false) ;
     const [ navOpen , setNavOpen ] = useState(false) ;
@@ -27,8 +27,13 @@ function Navbar({category , handleChange}) {
     const dispatch = useDispatch() ;
     const cart = useSelector(state => state.cart)
     const loggedIn = useSelector(state => state.user.displayName) ;
+    const OpenNavBar = () => {
+        openNav(!navOpen)
+        setNavOpen(!navOpen) ;
+    }
     const ToggleNav = () => {
         setNavOpen(false)
+        openNav(false)
         handleClick() ;
     }
     const handleSubmit = (e) => {
@@ -47,27 +52,32 @@ function Navbar({category , handleChange}) {
             setOpen(false)
         }, 4000);
     },[open])
+    window.addEventListener('resize' , () => {
+        if ( window.innerWidth <= 1040 ) {
+            openNav(navOpen)
+        }
+    })
     return (
         <div className='navbar'>
             <img 
                 src='http://pngimg.com/uploads/amazon/amazon_PNG11.png' 
                 alt='amazon-logo' 
             />
-            <Menu setNavOpen={setNavOpen} navOpen={navOpen} />
+            <Menu setNavOpen={OpenNavBar} navOpen={navOpen} />
             <div className={`navbar-mobile ${navOpen && 'navbar-opened'}`}>
                 <div className='navbar-mobile-top'>
                     <img 
                         src='http://pngimg.com/uploads/amazon/amazon_PNG11.png' 
                         alt='amazon-logo' 
                     />
-                    <Menu setNavOpen={setNavOpen} navOpen={navOpen} />
+                    <Menu setNavOpen={OpenNavBar} navOpen={navOpen} />
                 </div>
                  <div className={`nav-links-container ${navOpen && 'nav-open'}`}>
                     <Link className='nav-links' to='/'><HomeIcon /> Home</Link>
                     <Link className='nav-links' to='/cart' style={{justifyContent:'space-between'}}><div className='cart-nav'><ShoppingCartIcon /> Cart</div> <span>{cart.length}</span></Link>
                     <div className='nav-links' onClick={() => ToggleNav()}>
                         {darkTheme ? <Brightness7Icon /> : <Brightness4Icon />}
-                        Toggle {darkTheme ? 'Dark': 'Light'} Mode
+                        Toggle {darkTheme ? 'Light': 'Dark'} Mode
                     </div>
                     <Link className={`nav-links expand ${categoryOpen && 'expand-more'}`} onClick={() => setCategoryOpen(!categoryOpen)}>Categories <ExpandMoreIcon /> </Link>                    
                     <div className={`nav-links-category ${categoryOpen && 'nav-links-category-open'}`} style={{height: categoryOpen && '220px'}}>

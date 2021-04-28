@@ -307,7 +307,9 @@
         display: none ;
     }
     .navbar > img {
-        margin-left : 0 ;
+        margin: 0 ;
+        padding: 0 ;
+        margin-top: 20px ;
     }
     .deliver-lebanon {
         display : none ;
@@ -324,12 +326,13 @@
     }
     .navbar {
         align-items: center ;
-        justify-content: space-around ;
+        justify-content: space-between ;
         position: sticky ;
         top: 0 ;
         right: 0 ;
         left: 0 ;
         z-index: 10000 ;
+        padding: 0 40px ;
     }
     .navbar-mobile {
         display: block ;

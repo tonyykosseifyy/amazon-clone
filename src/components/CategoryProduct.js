@@ -10,6 +10,7 @@ function CategoryProduct({category , clsName}) {
     const [display , setDisplay ] = useState([]) ;
     const [categoryProduct , setCategoryProduct ] = useState([]) ;
     const [ requested , setRequested ] = useState([]) ;
+    const [ openNav , setNavOpen ] = useState(false)
     async function fetchCategoryProducts() {
         const response = await fetch(`https://fakestoreapi.com/products/category/${category}`) ;
         const data = await response.json() ;
@@ -26,7 +27,11 @@ function CategoryProduct({category , clsName}) {
     }
     const object = [1 , 2, 3, 4]
     let array = categoryProduct?.map((item , index ) => {return item.title })
-
+    window.addEventListener('resize' , () => {
+            if (window.innerWidth > 1040 ) {
+                setNavOpen(false) ;
+            }
+    })
     useEffect(() => {
         if( input ) {
             array.fill(false)
@@ -49,8 +54,8 @@ function CategoryProduct({category , clsName}) {
         }, [input])
         
     return (
-        <div style={{ backgroundColor: darkTheme ? '#101010' : '#EAEDED'}}>
-            <Navbar category={category} handleChange={handleChange} />
+        <div style={{ backgroundColor: darkTheme ? '#101010' : '#EAEDED'}} className={openNav && 'overflow-hidden'} >
+            <Navbar category={category} handleChange={handleChange} openNav={setNavOpen} />
             <div className='category-product'>
                 { categoryProduct.length > 0  ? categoryProduct?.map((item , index ) => (
                     <div style={{display : !display[index] || !input ? 'flex' : 'none' }}>

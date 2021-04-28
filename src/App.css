@@ -6,3 +6,8 @@ a:hover , a:focus {
 .app {
     overflow-x: hidden ;
 }
+
+.overflow-hidden {
+    height: 100vh ;
+    overflow-y: hidden ;
+}
